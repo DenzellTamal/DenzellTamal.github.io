@@ -1,0 +1,469 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f3e8ff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Corazones flotantes */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  color: #f9a8d4;
+  opacity: 0.3;
+  font-size: 20px;
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 50%, rgba(0, 0, 0, 0.2));
+}
+
+/* Contenido del hero */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 15;
+  width: 90%;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-title:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+/* Contador de slides */
+.slide-counter {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+#currentSlideNumber {
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+/* Secciones */
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-purple {
+  background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.rose-title {
+  color: #e11d48;
+}
+
+.purple-title {
+  color: #9333ea;
+}
+
+/* Tarjeta de contenido */
+.content-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content-text-large {
+  font-size: 1.25rem;
+  color: #374151;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.content-text {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+/* Grid de tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.love-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.love-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.heart-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.love-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.love-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Tarjeta de significado */
+.meaning-card {
+  background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.meaning-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.meaning-line {
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.meaning-final {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: #1f2937;
+  font-weight: 700;
+  margin-top: 20px;
+  line-height: 1.3;
+}
+
+.highlight-rose {
+  color: #e11d48;
+  font-weight: 700;
+}
+
+.highlight-purple {
+  color: #9333ea;
+  font-weight: 700;
+}
+
+/* Sección final */
+.section-final {
+  background: linear-gradient(135deg, #fecaca 0%, #fbb6ce 50%, #ddd6fe 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.final-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.final-heart {
+  position: absolute;
+  color: #f472b6;
+  opacity: 0.4;
+  font-size: 30px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.final-content {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.final-title {
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #e11d48 0%, #ec4899 50%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  animation: pulseSlow 3s ease-in-out infinite;
+  line-height: 1;
+}
+
+.final-subtitle {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: #be185d;
+  animation: bounceSlow 2s ease-in-out infinite;
+  margin-top: 30px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(-5deg);
+  }
+}
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes bounceSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .content-card,
+  .meaning-card {
+    padding: 30px 20px;
+  }
+
+  .love-card {
+    padding: 25px 20px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .carousel-btn-prev {
+    left: 10px;
+  }
+
+  .carousel-btn-next {
+    right: 10px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .meaning-text {
+    gap: 20px;
+  }
+
+  .section-final {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    width: 95%;
+  }
+
+  .content-text-large {
+    font-size: 1.1rem;
+  }
+
+  .content-text {
+    font-size: 1rem;
+  }
+
+  .meaning-line {
+    font-size: 1.1rem;
+  }
+
+  .meaning-final {
+    font-size: 1.3rem;
+  }
+}
